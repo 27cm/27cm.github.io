@@ -8,8 +8,9 @@ layout: default
 </div>
 <div class="section toc">
   <div class="col">
-    <h4><a href="#html">HTML</a></h4>
+    <h4><a href="#common">HTML</a></h4>
     <ul>
+        <li><a href="#common-names">Названия</a></li>
       <li><a href="#html-syntax">Syntax</a></li>
       <li><a href="#html-doctype">HTML5 doctype</a></li>
       <li><a href="#html-lang">Language attribute</a></li>
@@ -60,6 +61,50 @@ layout: default
 
 <div class="heading" id="html">
   <h2>HTML</h2>
+</div>
+
+<div class="section" id="common-names">
+    <div class="col">
+        <h3>Названия</h3>
+        <p>
+            Названия любых предметов должны быть такими, чтобы о предмете было понятно
+            как можно больше и контекста требовалось как можно меньше.
+        </p>
+        <p>
+            Если у нас есть модели и у моделей есть ID, то по названию массива
+            должно быть чётко понятно, объекты там или только список ID:
+            <code>$couriers</code> — массив <code>CourierRow[]</code>, а
+            <code>$courierIds</code> — список айдишников <code>int[]</code>.
+        </p>
+        <p>
+            Если значение булевое, это должно быть однозначно понятно из названия:
+            $order->isDeliveryForNovices(), $eventsAreEnabled.
+        </p>
+        <p>
+            Для значений с единицами изменения эти единицы должны быть в названии:
+            <code>$waitingStepMinutes</code>.
+        </p>
+        <p>
+            Названия классов и файлов должны быть такими, чтобы легко было пользоваться функцией
+            open file в IDE. Например, ...\Yandex\YandexOrder будет легко найти,
+            а ...\Yandex\Order смешается с кучей Order.php в других пакетах.
+        </p>
+    </div>
+    <div class="col">
+        {% highlight php %}
+        // Хорошо понятно, что происходит
+        $log->ignorePriorityLowerThan(Log::WARN)
+        $duplicatesAreFound
+
+        // Хуже
+        $log->setFilter(Log::WARN)
+        $duplicated
+
+        // Пиздец
+        $l->filt(4)
+        $dup
+        {% endhighlight %}
+    </div>
 </div>
 
 <div class="section" id="html-syntax">
